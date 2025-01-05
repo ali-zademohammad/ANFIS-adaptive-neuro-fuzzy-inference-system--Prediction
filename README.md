@@ -167,6 +167,16 @@ predicted_viscosity = model(x_new)
 print(f"Predicted Viscosity for T=75, P=1.6: {predicted_viscosity.item()}")
 ```
 
+## Example Output
+
+```
+Epoch 0, Loss: 25.46
+Epoch 100, Loss: 0.15
+...
+Epoch 900, Loss: 0.01
+Predicted Viscosity for T=75, P=1.6: 132.4
+```
+
 ## Dependencies
 - Python 3.7+
 - NumPy
@@ -180,9 +190,9 @@ pip install numpy scikit-learn scipy torch
 ```
 
 ## File Structure
-- **Hybrid Optimization Approach**: [ANFIS Hybrid Implementation]([link-to-hybrid-code](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system-Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb))   
-- **PyTorch-based Deep Learning Approach**: [ANFIS PyTorch Implementation]([link-to-pytorch-code](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb))   
-- **Documentation**: [README.md]([link-to-readme](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/README.md))
+- **Hybrid Optimization Approach**: [ANFIS Hybrid Implementation](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system-Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)   
+- **PyTorch-based Deep Learning Approach**: [ANFIS PyTorch Implementation](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)  
+- **Documentation**: [README.md](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/README.md)
 
 ## Contributions
 Contributions are welcome! Feel free to open issues or submit pull requests.
@@ -192,78 +202,3 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 2. Takagi, T., & Sugeno, M. (1985). Fuzzy identification of systems and its applications to modeling and control. IEEE Transactions on Systems, Man, and Cybernetics.
 3. K-means clustering: [scikit-learn KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
 4. L-BFGS-B optimization: [SciPy Minimize L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html)
-
-
-
-
-
-Install requirements:
-```bash
-pip install numpy scikit-learn scipy
-```
-
-
-## ANFIS Architecture (**PyTorch-based Deep Learning Approach**)
-
-- Gaussian membership functions with trainable centers and sigmas.
-- Rule-based modeling for interpretability.
-- Customizable number of fuzzy rules.
-- Predicts new viscosity values with a single function call.
-- Implemented in PyTorch for efficient computation and training.
-
-## ## Implementation Details
-
-
-1. **Membership Functions**: Gaussian functions are used for temperature and pressure.
-2. **Rule-Based Inference**: Each rule combines the membership functions to compute firing strengths.
-3. **Normalization**: Firing strengths are normalized to prevent numerical issues.
-4. **Weighted Outputs**: Linear equations define the rule outputs, which are aggregated using firing strengths.
-5. **Training**: The model is trained using mean squared error (MSE) loss with the Adam optimizer.
-6. **Prediction**: Once trained, the model predicts viscosity values for new temperature and pressure inputs.
-
-
-
-Install dependencies with:
-```bash
-pip install torch numpy
-```
-
-## Usage
-
-### Training
-
-```python
-# Initialize and train the model
-model = ANFIS(num_rules=4, input_dim=2)
-optimizer = optim.Adam(model.parameters(), lr=0.01)
-criterion = nn.MSELoss()
-
-for epoch in range(1000):
-    optimizer.zero_grad()
-    predictions = model(data)
-    loss = criterion(predictions, targets)
-    loss.backward()
-    optimizer.step()
-
-    if epoch % 100 == 0:
-        print(f"Epoch {epoch}, Loss: {loss.item()}")
-```
-
-### Predicting New Data
-
-```python
-x_new = torch.tensor([[75.0, 1.6]], dtype=torch.float32)
-predicted_viscosity = model(x_new)
-print(f"Predicted Viscosity for T=75, P=1.6: {predicted_viscosity.item()}")
-```
-
-## Example Output
-
-```
-Epoch 0, Loss: 25.46
-Epoch 100, Loss: 0.15
-...
-Epoch 900, Loss: 0.01
-Predicted Viscosity for T=75, P=1.6: 132.4
-```
-

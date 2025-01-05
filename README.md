@@ -86,11 +86,6 @@ The Gaussian function is used to represent fuzzy sets:
 ```math
 \mu(x) = e^{-\frac{(x - c)^2}{2\sigma^2}}
 ```
-## Mathematical Background
-### Gaussian Membership Function
-```math
-\mu(x) = e^{-\frac{(x - c)^2}{2\sigma^2}}
-```
 where:
 - c: center of the membership function
 - σ: width of the membership function

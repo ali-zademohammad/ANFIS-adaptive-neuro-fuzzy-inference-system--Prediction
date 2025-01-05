@@ -1,6 +1,14 @@
 # ANFIS Implementation for Viscosity Prediction
 
-This repository contains a Python implementation of an Adaptive Neuro-Fuzzy Inference System (ANFIS) for predicting viscosity based on temperature and pressure inputs. The implementation follows the standard ANFIS architecture with hybrid learning.
+
+This repository contains an implementation of the **Adaptive Neuro-Fuzzy Inference System (ANFIS)** to predict the viscosity of a fluid based on temperature and pressure inputs. Two distinct methods are provided for ANFIS implementation:
+
+.
+
+**Hybrid Optimization Approach**: This method uses a combination of fuzzy logic with linear regression and optimization to predict viscosity.    
+**PyTorch-based Deep Learning Approach**: This method leverages a neural network with Gaussian membership functions to model the relationship between inputs (temperature and pressure) and viscosity.
+
+Both methods use an example dataset to demonstrate the models and make predictions. The dataset contains temperature, pressure, and viscosity values for a fluid.   
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -17,34 +25,69 @@ ANFIS (Adaptive Neuro-Fuzzy Inference System) is a powerful hybrid intelligent s
 ## ANFIS Architecture
 The system follows a 5-layer architecture:
 
-1. **Input Layer**: Receives temperature and pressure values
-2. **Fuzzification Layer**: Applies Gaussian membership functions
-3. **Rule Layer**: Computes firing strengths of fuzzy rules
-4. **Normalization Layer**: Normalizes rule strengths
-5. **Defuzzification Layer**: Produces final output using linear regression
+1. **Input Layer**: Receives raw input values (temperature and pressure).
+2. **Fuzzification Layer**: Converts inputs into fuzzy values using Gaussian membership functions.
+3. **Rule Layer**: Evaluates firing strengths of fuzzy rules using the product T-norm.
+4. **Normalization Layer**: Normalizes firing strengths across all rules.
+5. **Defuzzification Layer**: Computes the final output using a weighted sum of rule contributions.
 
 ## Implementation Details
 The implementation consists of several key components:
 
 1. **Initialization**:
+   - **K-Means Clustering** is used to determine initial membership function centers.
+   - Sigma (\(\sigma\)) values are calculated based on the distance between cluster centers.
+
    - Uses K-Means clustering to initialize membership function centers
    - Calculates initial sigma values based on cluster centers
 
-2. **Membership Functions**:
+3. **Membership Functions**:
    - Gaussian membership functions are used for fuzzification
+   - - Represents fuzzy sets for temperature (\(T\)) and pressure (\(P\)).
+   - Parameters (\(c, \sigma\)) are refined during optimization.
+
    - Parameters (c, σ) are optimized during training
 
-3. **Rule Evaluation**:
+4. **Rule Evaluation**:
    - Four rules combining temperature and pressure conditions
    - Rule firing strengths calculated using product T-norm
+   - - Defines fuzzy rules based on combinations of low/high fuzzy sets for \(T\) and \(P\).
+   - Calculates firing strengths using the product of membership values.
 
-4. **Hybrid Learning**:
+4. **Parameter Estimation**:
+   - Uses **linear regression** to estimate rule coefficients (\(p, q, r\)).
+   - Refines parameters through **L-BFGS-B optimization** to minimize prediction error.
+
+
+5. **Hybrid Learning**:
    - Initial parameters estimated using linear regression
    - Final optimization using L-BFGS-B method
 
-5. **Prediction**:
+6. **Prediction**:
    - Combines rule outputs using weighted average
    - Produces final viscosity prediction
+---
+
+### PyTorch-Based Neural Network Approach
+1. **Learnable Membership Functions**:
+   - Membership function parameters (\(c, \sigma\)) are initialized randomly and updated during training.
+
+2. **Rule Computation**:
+   - Firing strengths are calculated for each rule using Gaussian membership functions.
+
+3. **End-to-End Training**:
+   - A neural network computes and combines rule outputs.
+   - Uses **Adam optimizer** and **MSE loss** for training.
+
+---
+---
+
+## Mathematical Background
+
+### Gaussian Membership Function
+The Gaussian function is used to represent fuzzy sets:
+```math
+\mu(x) = e^{-\frac{(x - c)^2}{2\sigma^2}}
 
 ## Mathematical Background
 ### Gaussian Membership Function

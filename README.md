@@ -142,6 +142,103 @@ Install requirements:
 ```bash
 pip install numpy scikit-learn scipy
 ```
+# ANFIS for Predicting Viscosity
+
+This project implements an Adaptive Neuro-Fuzzy Inference System (ANFIS) in PyTorch to predict viscosity based on temperature and pressure. ANFIS combines fuzzy logic with neural networks, enabling it to learn rules and membership functions from data.
+
+## Features
+
+- Gaussian membership functions with trainable centers and sigmas.
+- Rule-based modeling for interpretability.
+- Customizable number of fuzzy rules.
+- Predicts new viscosity values with a single function call.
+- Implemented in PyTorch for efficient computation and training.
+
+## Dataset
+
+The example dataset includes temperature, pressure, and viscosity:
+
+| Temperature (T) | Pressure (P) | Viscosity (V) |
+|------------------|--------------|---------------|
+| 50              | 1.0          | 120           |
+| 60              | 1.2          | 125           |
+| 70              | 1.5          | 130           |
+| 80              | 1.7          | 135           |
+| 90              | 2.0          | 140           |
+
+## How It Works
+
+1. **Membership Functions**: Gaussian functions are used for temperature and pressure.
+2. **Rule-Based Inference**: Each rule combines the membership functions to compute firing strengths.
+3. **Normalization**: Firing strengths are normalized to prevent numerical issues.
+4. **Weighted Outputs**: Linear equations define the rule outputs, which are aggregated using firing strengths.
+5. **Training**: The model is trained using mean squared error (MSE) loss with the Adam optimizer.
+6. **Prediction**: Once trained, the model predicts viscosity values for new temperature and pressure inputs.
+
+## Requirements
+
+- Python 3.8+
+- PyTorch
+- NumPy
+
+Install dependencies with:
+```bash
+pip install torch numpy
+```
+
+## Usage
+
+### Training
+
+```python
+# Initialize and train the model
+model = ANFIS(num_rules=4, input_dim=2)
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+criterion = nn.MSELoss()
+
+for epoch in range(1000):
+    optimizer.zero_grad()
+    predictions = model(data)
+    loss = criterion(predictions, targets)
+    loss.backward()
+    optimizer.step()
+
+    if epoch % 100 == 0:
+        print(f"Epoch {epoch}, Loss: {loss.item()}")
+```
+
+### Predicting New Data
+
+```python
+x_new = torch.tensor([[75.0, 1.6]], dtype=torch.float32)
+predicted_viscosity = model(x_new)
+print(f"Predicted Viscosity for T=75, P=1.6: {predicted_viscosity.item()}")
+```
+
+## Example Output
+
+```
+Epoch 0, Loss: 25.46
+Epoch 100, Loss: 0.15
+...
+Epoch 900, Loss: 0.01
+Predicted Viscosity for T=75, P=1.6: 132.4
+```
+
+## File Structure
+
+- `anfis.py`: Core implementation of the ANFIS model.
+- `train.py`: Training and evaluation script.
+- `README.md`: Documentation.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contributions
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
 
 ## References
 1. Jang, J.-S. R. (1993). ANFIS: Adaptive-Network-based Fuzzy Inference System. IEEE Transactions on Systems, Man, and Cybernetics.

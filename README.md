@@ -3,10 +3,8 @@
 
 This repository contains an implementation of the **Adaptive Neuro-Fuzzy Inference System (ANFIS)** to predict the viscosity of a fluid based on temperature and pressure inputs. Two distinct methods are provided for ANFIS implementation:
 
-.
-
-**Hybrid Optimization Approach**: This method uses a combination of fuzzy logic with linear regression and optimization to predict viscosity.    
-**PyTorch-based Deep Learning Approach**: This method leverages a neural network with Gaussian membership functions to model the relationship between inputs (temperature and pressure) and viscosity.
+**Hybrid Optimization Approach**: This method uses a combination of fuzzy logic with linear regression and optimization to predict viscosity.       
+**PyTorch-based Deep Learning Approach**: This method leverages a neural network with Gaussian membership functions to model the relationship between inputs (temperature and pressure) and viscosity.   
 
 Both methods use an example dataset to demonstrate the models and make predictions. The dataset contains temperature, pressure, and viscosity values for a fluid.   
 
@@ -44,8 +42,6 @@ The implementation consists of several key components:
 3. **Membership Functions**:
    - Gaussian membership functions are used for fuzzification
    - - Represents fuzzy sets for temperature (\(T\)) and pressure (\(P\)).
-   - Parameters (\(c, \sigma\)) are refined during optimization.
-
    - Parameters (c, σ) are optimized during training
 
 4. **Rule Evaluation**:
@@ -80,15 +76,16 @@ The implementation consists of several key components:
    - Uses **Adam optimizer** and **MSE loss** for training.
 
 ---
----
+
 
 ## Mathematical Background
 
 ### Gaussian Membership Function
-The Gaussian function is used to represent fuzzy sets:
+The Gaussian function is used to represent fuzzy sets:  
+
 ```math
 \mu(x) = e^{-\frac{(x - c)^2}{2\sigma^2}}
-
+```
 ## Mathematical Background
 ### Gaussian Membership Function
 ```math

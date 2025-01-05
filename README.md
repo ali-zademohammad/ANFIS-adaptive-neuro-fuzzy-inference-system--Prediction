@@ -144,11 +144,6 @@ params_optimized = result.x
 predictions = anfis_predict(params_optimized, T, P, rules)
 ```
 
-## Dependencies
-- Python 3.7+
-- NumPy
-- scikit-learn
-- SciPy
 
 Install requirements:
 ```bash
@@ -221,12 +216,17 @@ Predicted Viscosity for T=75, P=1.6: 132.4
 ```
 
 ## File Structure
+- `ANFIS Architecture (Hybrid Optimization Approach)`[https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system-Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb]
+ANFIS Architecture (**PyTorch-based Deep Learning Approach**)[https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb]
 
-- `anfis.py`: Core implementation of the ANFIS model.
-- `train.py`: Training and evaluation script.
-- `README.md`: Documentation.
+- `README.md`: [https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/README.md]Documentation.
 
 
+## Dependencies
+- Python 3.7+
+- NumPy
+- scikit-learn
+- SciPy   
 ## Contributions
 
 Contributions are welcome! Feel free to open issues or submit pull requests.

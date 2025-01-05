@@ -77,19 +77,25 @@ The architecture for this approach extends the hybrid optimization model with:
 ## Mathematical Background
 
 ### Gaussian Membership Function
-The Gaussian function represents fuzzy sets:
+The Gaussian function is used to represent fuzzy sets:  
 
-\[ μ(x) = e^{-\frac{(x - c)^2}{2σ^2}} \]
-
+```math
+\mu(x) = e^{-\frac{(x - c)^2}{2\sigma^2}}
+```
 where:
-- \(c\): center of the membership function
+- c: center of the membership function
 - σ: width of the membership function
 
 ### Rule Firing Strength
-\[ w_i = μ_T(T) × μ_P(P) \]
+```math
+w_i = \mu_{T}(T) \times \mu_{P}(P)
+```
 
 ### Output Calculation
-\[ y = \frac{\sum_{i=1}^{n} w_i ⋅ (p_i T + q_i P + r_i)}{\sum_{i=1}^{n} w_i} \]
+```math
+y = \frac{\sum_{i=1}^{n} w_i \cdot (p_i T + q_i P + r_i)}{\sum_{i=1}^{n} w_i}
+```
+
 
 ## Dataset
 
@@ -174,9 +180,9 @@ pip install numpy scikit-learn scipy torch
 ```
 
 ## File Structure
-- **Hybrid Optimization Approach**: [ANFIS Hybrid Implementation](link-to-hybrid-code)
-- **PyTorch-based Deep Learning Approach**: [ANFIS PyTorch Implementation](link-to-pytorch-code)
-- **Documentation**: [README.md](link-to-readme)
+- **Hybrid Optimization Approach**: [ANFIS Hybrid Implementation]([link-to-hybrid-code](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system-Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb))   
+- **PyTorch-based Deep Learning Approach**: [ANFIS PyTorch Implementation]([link-to-pytorch-code](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb))   
+- **Documentation**: [README.md]([link-to-readme](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/README.md))
 
 ## Contributions
 Contributions are welcome! Feel free to open issues or submit pull requests.
@@ -189,28 +195,6 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 
 
-
-## Mathematical Background
-
-### Gaussian Membership Function
-The Gaussian function is used to represent fuzzy sets:  
-
-```math
-\mu(x) = e^{-\frac{(x - c)^2}{2\sigma^2}}
-```
-where:
-- c: center of the membership function
-- σ: width of the membership function
-
-### Rule Firing Strength
-```math
-w_i = \mu_{T}(T) \times \mu_{P}(P)
-```
-
-### Output Calculation
-```math
-y = \frac{\sum_{i=1}^{n} w_i \cdot (p_i T + q_i P + r_i)}{\sum_{i=1}^{n} w_i}
-```
 
 ## Usage
 1. Prepare your dataset with columns: Temperature, Pressure, Viscosity
@@ -314,9 +298,4 @@ Epoch 100, Loss: 0.15
 Epoch 900, Loss: 0.01
 Predicted Viscosity for T=75, P=1.6: 132.4
 ```
-
-## File Structure
-ANFIS Architecture : [(**Hybrid Optimization Approach**)](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system-Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)    
-ANFIS Architecture : [(**PyTorch-based Deep Learning Approach**)](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)    
-Documentation : [README.md](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/README.md)   
 

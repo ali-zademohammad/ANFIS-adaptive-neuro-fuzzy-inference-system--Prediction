@@ -216,8 +216,8 @@ Predicted Viscosity for T=75, P=1.6: 132.4
 ```
 
 ## File Structure
-[ANFIS Architecture(**Hybrid Optimization Approach**)](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system-Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)    
-[ANFIS Architecture (**PyTorch-based Deep Learning Approach**)](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)    
+ANFIS Architecture : [(**Hybrid Optimization Approach**)](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system-Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)    
+ANFIS Architecture : [(**PyTorch-based Deep Learning Approach**)](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/ANFIS-pytorch.ipynb)    
 Documentation : [README.md](https://github.com/ali-zademohammad/ANFIS-adaptive-neuro-fuzzy-inference-system--Prediction/blob/221591c21af89e9a561d905c0b00e3dcdf3d621d/README.md)   
 
 

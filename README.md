@@ -20,7 +20,7 @@ Both methods use an example dataset to demonstrate the models and make predictio
 ## Introduction
 ANFIS (Adaptive Neuro-Fuzzy Inference System) is a powerful hybrid intelligent system that combines the learning capabilities of neural networks with the interpretability of fuzzy systems. This implementation focuses on predicting viscosity (V) based on temperature (T) and pressure (P) inputs.
 
-## ANFIS Architecture
+## ANFIS Architecture (**Hybrid Optimization Approach**)
 The system follows a 5-layer architecture:
 
 1. **Input Layer**: Receives raw input values (temperature and pressure).
@@ -100,6 +100,18 @@ w_i = \mu_{T}(T) \times \mu_{P}(P)
 y = \frac{\sum_{i=1}^{n} w_i \cdot (p_i T + q_i P + r_i)}{\sum_{i=1}^{n} w_i}
 ```
 
+## Dataset
+
+The example dataset includes temperature, pressure, and viscosity:
+
+| Temperature (T) | Pressure (P) | Viscosity (V) |
+|------------------|--------------|---------------|
+| 50              | 1.0          | 120           |
+| 60              | 1.2          | 125           |
+| 70              | 1.5          | 130           |
+| 80              | 1.7          | 135           |
+| 90              | 2.0          | 140           |
+
 ## Usage
 1. Prepare your dataset with columns: Temperature, Pressure, Viscosity
 2. Import the required libraries:
@@ -142,11 +154,9 @@ Install requirements:
 ```bash
 pip install numpy scikit-learn scipy
 ```
-# ANFIS for Predicting Viscosity
 
-This project implements an Adaptive Neuro-Fuzzy Inference System (ANFIS) in PyTorch to predict viscosity based on temperature and pressure. ANFIS combines fuzzy logic with neural networks, enabling it to learn rules and membership functions from data.
 
-## Features
+## ANFIS Architecture (**PyTorch-based Deep Learning Approach**)
 
 - Gaussian membership functions with trainable centers and sigmas.
 - Rule-based modeling for interpretability.
@@ -154,19 +164,8 @@ This project implements an Adaptive Neuro-Fuzzy Inference System (ANFIS) in PyTo
 - Predicts new viscosity values with a single function call.
 - Implemented in PyTorch for efficient computation and training.
 
-## Dataset
+## ## Implementation Details
 
-The example dataset includes temperature, pressure, and viscosity:
-
-| Temperature (T) | Pressure (P) | Viscosity (V) |
-|------------------|--------------|---------------|
-| 50              | 1.0          | 120           |
-| 60              | 1.2          | 125           |
-| 70              | 1.5          | 130           |
-| 80              | 1.7          | 135           |
-| 90              | 2.0          | 140           |
-
-## How It Works
 
 1. **Membership Functions**: Gaussian functions are used for temperature and pressure.
 2. **Rule-Based Inference**: Each rule combines the membership functions to compute firing strengths.
@@ -175,11 +174,7 @@ The example dataset includes temperature, pressure, and viscosity:
 5. **Training**: The model is trained using mean squared error (MSE) loss with the Adam optimizer.
 6. **Prediction**: Once trained, the model predicts viscosity values for new temperature and pressure inputs.
 
-## Requirements
 
-- Python 3.8+
-- PyTorch
-- NumPy
 
 Install dependencies with:
 ```bash
@@ -231,9 +226,6 @@ Predicted Viscosity for T=75, P=1.6: 132.4
 - `train.py`: Training and evaluation script.
 - `README.md`: Documentation.
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contributions
 

@@ -196,38 +196,6 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 
 
-## Usage
-1. Prepare your dataset with columns: Temperature, Pressure, Viscosity
-2. Import the required libraries:
-```python
-import numpy as np
-from sklearn.linear_model import LinearRegression
-from sklearn.cluster import KMeans
-from scipy.optimize import minimize
-```
-
-3. Initialize the ANFIS model:
-```python
-# Initialize membership functions
-c_T, sigma_T = initialize_membership_functions(T)
-c_P, sigma_P = initialize_membership_functions(P)
-```
-
-4. Train the model:
-```python
-# Calculate rule firing strengths
-rules = firing_strength(T, P, c_T, sigma_T, c_P, sigma_P)
-
-# Optimize parameters
-result = minimize(loss_function, x0=np.hstack([params_initial, np.zeros(4)]), method='L-BFGS-B')
-params_optimized = result.x
-```
-
-5. Make predictions:
-```python
-predictions = anfis_predict(params_optimized, T, P, rules)
-```
-
 
 Install requirements:
 ```bash

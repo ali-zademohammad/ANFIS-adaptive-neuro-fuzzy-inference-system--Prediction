@@ -6,7 +6,7 @@ This repository contains an implementation of the **Adaptive Neuro-Fuzzy Inferen
 2. **PyTorch-based Deep Learning Approach**: This method leverages a neural network with Gaussian membership functions to model the relationship between inputs (temperature and pressure) and viscosity.
 
 Both methods use an example dataset to demonstrate the models and make predictions. The dataset contains temperature, pressure, and viscosity values for a fluid.
-
+![image.png](attachment:image.png)
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [ANFIS Architecture](#anfis-architecture)
